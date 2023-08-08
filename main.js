@@ -3,16 +3,27 @@ const keys = ['c-key', 'd-key', 'e-key', 'f-key', 'g-key', 'a-key', 'b-key', 'hi
 const notes = [];
 keys.forEach(function(key){
   notes.push(document.getElementById(key));
+  
 })
 
 // Write named functions that change the color of the keys below
 function keyPlay(event) {
-  let key = event.target;
-  key.style.backgroundColor='yellow';
+event.target.style.backgroundColor = 'red';
 }
 
+function keyReturn(event) {
+ event.target.style.backgroundColor = '';
+}
 // Write a named function with event handler properties
+function assignerEvent(note) {
+  
+  note.addEventListener('mousedown', keyPlay);
+  note.addEventListener('mouseup', keyReturn);
+  
+}
+notes.forEach(assignerEvent);
 
+  
 
 // Write a loop that runs the array elements through the function
 
